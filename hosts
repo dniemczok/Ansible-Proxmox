@@ -1,0 +1,2 @@
+[proxmox]
+pve01 ansible_host=lh ansible_port=12022 ansible_ssh_user=root ansible_ssh_pass=thc401

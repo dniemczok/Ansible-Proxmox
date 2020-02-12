@@ -1,0 +1,17 @@
+---
+- name:             'Create VM'
+  hosts:            'all'
+  tasks:
+# Create new VM from Template 100
+  - proxmox_kvm:
+      api_user    : root@pam
+      api_password: thc401
+      api_host    : pve01
+      name        : vm01
+      node        : pve01
+      clone       : arbitrary_name
+      vmid        : 100
+      newid       : 200
+      storage     : TST-ZFS01
+      format      : vmdk
+      timeout     : 300

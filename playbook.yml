@@ -1,0 +1,34 @@
+# install_pip.yml
+---
+- name:          'prep proxmox hosts for automation'
+  hosts:         'all'
+  gather_facts:  false
+  vars:
+    packages:
+      - 'python-pip'
+      - 'python-dev'
+      - 'build-essential'
+
+  tasks:
+    - name:      'install python-apt so native apt plugins work'
+      package:
+        name:    'python-apt'
+        state:   'present'
+
+    - name:      'Update all packages to the latest version'
+      apt:
+        upgrade: 'dist'
+    - name:      'Install pip packages'
+      apt:
+        name:    "{{ packages }}"
+    - name:      'pip update pip'
+      pip:
+        name:    'pip'
+        state:   'latest'
+    - name:      'Install dependencies'
+      pip:
+        name:    'virtualenv'
+        state:   'latest'
+      pip:
+        name:    'proxmoxer'
+        state:   'latest'
