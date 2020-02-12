@@ -11,4 +11,4 @@
       api_host:     pve01
       password:     thc401
       hostname:     ctx01.local
-      ostemplate:   'local:vztmpl/ubuntu-19.10-standard_19.10-1_amd64.tar.gz'
+      ostemplate:   'TST-ZFS01:vztmpl/ubuntu-18.04-standard_18.04.1-1_amd64.tar.gz'
